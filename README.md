@@ -1,2 +1,2 @@
 # CleanSwift
-Clean swift plus TDD approach 
+TDD approach 
