@@ -6,7 +6,7 @@ Clean swift is an architecture that follows Uncle Bob’s Clean Architecture and
 
 View: The view controller invokes the interactor to perform some business logic.\
 Interactor: The interactor invokes the presenter to format the result to some primitive types.\
-Presenter: The presenter invokes the view controller to display the results on the screen.\
+Presenter: The presenter invokes the view controller to display the results on the screen.
 
 # Communication using dependency injection
 ```
