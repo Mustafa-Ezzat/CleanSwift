@@ -8,7 +8,7 @@ A pretty architecture is easy to be testable.
 Test init
 
 ```
-      context("When call create module method, ") {
+            context("When call create module method, ") {
                 it("That mean all architecture components must init") {
                     guard let interactor = self.vc?.interactor as? SearchInteractor, let _ = interactor.presenter as? SearchPresenter else {
                         fail("Init components failed")
