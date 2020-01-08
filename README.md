@@ -5,7 +5,7 @@ Clean swift is an architecture that follows Uncle Bob’s Clean Architecture and
 # Testable 
 A pretty architecture is easy to be testable.
 
-`
+```
     func testSearchModule_Init() {
         guard let interactor = vc?.interactor as? SearchInteractor, let _ = interactor.presenter as? SearchPresenter else {
             XCTFail()
@@ -14,11 +14,11 @@ A pretty architecture is easy to be testable.
         // That mean all architecture components initialized
         XCTAssert(true)
     }
-`
+```
 
 Test deinit
 
-`
+```
    func testSearchModule_Deinit() {
         // Test Memory Management
         // check deinit
