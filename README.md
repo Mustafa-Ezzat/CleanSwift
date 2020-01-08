@@ -8,27 +8,30 @@ A pretty architecture is easy to be testable.
 Test init
 
 ```
-    func testSearchModule_Init() {
-        guard let interactor = vc?.interactor as? SearchInteractor, let _ = interactor.presenter as? SearchPresenter else {
-            XCTFail()
-            return
-        }
-        // That mean all architecture components initialized
-        XCTAssert(true)
-    }
+      context("When call create module method, ") {
+                it("That mean all architecture components must init") {
+                    guard let interactor = self.vc?.interactor as? SearchInteractor, let _ = interactor.presenter as? SearchPresenter else {
+                        fail("Init components failed")
+                        return
+                    }
+                    // pretty cool
+                    assert(true, "Module components init successfylly")
+                }
+            }
 ```
 
 Test deinit
 
 ```
-   func testSearchModule_Deinit() {
-        // Test Memory Management
-        // check deinit
-        vc = nil
-        guard let interactor = vc?.interactor as? SearchInteractor, let _ = interactor.presenter as? SearchPresenter else {
-            // That mean all architecture components deinitialized
-            XCTAssert(true)
-            return
-        }
-        XCTFail()
-    }
+               context("When search view controller no longer used, ") {
+                it("That mean all architecture components must deinit") {
+                    self.vc = nil
+                    guard let interactor = self.vc?.interactor as? SearchInteractor, let _ = interactor.presenter as? SearchPresenter else {
+                        // pretty cool
+                        assert(true, "Module components deinit successfylly")
+                        return
+                    }
+                    fail("Deinit components failed")
+                }
+            }
+
