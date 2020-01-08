@@ -23,7 +23,7 @@ Test init
 Test deinit
 
 ```
-               context("When search view controller no longer used, ") {
+           context("When search view controller no longer used, ") {
                 it("That mean all architecture components must deinit") {
                     self.vc = nil
                     guard let interactor = self.vc?.interactor as? SearchInteractor, let _ = interactor.presenter as? SearchPresenter else {
