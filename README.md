@@ -36,31 +36,32 @@ class SearchModuleSpec: QuickSpec {
     var vc: SearchViewController!
     
     override func spec() {
-        describe("Test the memory management for search module") {
+        describe("Start with test a search module communication") {
             beforeEach {
                 self.sut = SearchConfig()
                 self.vc = SearchViewController()
                 self.sut.createModule(view: self.vc)
             }
-            context("When call create module method, ") {
-                it("That mean all architecture components must init") {
+            context("When creating a search module") {
+                it("That means all architecture components should be initialized") {
                     guard let interactor = self.vc?.interactor as? SearchInteractor, let _ = interactor.presenter as? SearchPresenter else {
                         fail("Init components failed")
                         return
                     }
                     // pretty cool
-                    assert(true, "Module components init successfylly")
+                    assert(true, "Module components init successfully")
                 }
             }
-            context("When search view controller no longer used, ") {
-                it("That mean all architecture components must deinit") {
+            // Test memory management, and make sure no retain cycle exist
+            context("When search view controller no longer used") {
+                it("That means all module components should be deinitialized") {
                     self.vc = nil
                     guard let interactor = self.vc?.interactor as? SearchInteractor, let _ = interactor.presenter as? SearchPresenter else {
                         // pretty cool
-                        assert(true, "Module components deinit successfylly")
+                        assert(true, "Module components deinitialized successfully")
                         return
                     }
-                    fail("Deinit components failed")
+                    fail("Deinitialize module components failed")
                 }
             }
         }
